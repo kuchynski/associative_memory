@@ -1,6 +1,6 @@
 <span style="color:yellow">Section A.</span>
 
-This algorithm provide quick access to the data pointer.
+This algorithm provides a quick access to the data pointer using a radix tree https://en.wikipedia.org/wiki/Radix_tree
 The basic idea is to compare each string key symbol only once. It reduces time access even if there are a lot of elements into the memory.
 
 For a example if we need to storage three notice about famous people, the final structure is:

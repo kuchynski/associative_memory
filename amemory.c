@@ -83,13 +83,11 @@ void* AMemoryGetPointer(struct AMemory *a_memory, const unsigned char *name)
 	void *ptr = a_memory->pointer[symbol];
 
 	if(symbol) {
-		if(a_memory->alone_pointer) {
-			return strcmp(a_memory->alone_name, name)? NULL : a_memory->alone_pointer;
-		}
-		return ptr? AMemoryGetPointer((struct AMemory*)ptr, name + 1) : NULL;
+		if(a_memory->alone_pointer)
+			ptr = strcmp(a_memory->alone_name, name)? NULL : a_memory->alone_pointer;
+		else if(ptr)
+			ptr = AMemoryGetPointer((struct AMemory*)ptr, name + 1);
 	}
 
 	return ptr;
 }
-
-
